@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="add-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body>
+    <!-- Navbar section ============================== -->
+    <section id="navbar" class="sticky-top">
+        <nav class="navbar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <img src="img/logo.png" alt="Profile Photo" class="nav-logo img-fluid rounded-circle">
+                <div class="navbar-text mx-3">
+                    <h2 id="currentMonth"></h2>
+                </div>
+                <div>
+                    <i class="fa-solid fa-bars" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvas"></i>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+    <!-- Heading ===================================== -->
+    <section id="heading">
+        <h2 class="text-center my-3">Add New Student</h2>
+    </section>
+
+    <!-- Add Section ================================== -->
+    <section id="add-student" class="container">
+        <div class="add-section px-3 py-3">
+            <div class="row">
+                <div class="col-12 my-2 w-80">
+                    <input type="text" id="name" placeholder="Student Name">
+                </div>
+                <div class="col-12 my-2">
+                    <input type="text" id="class" placeholder="Class">
+                </div>
+                <div class="col-12 my-2">
+                    <input type="text" id="mobile" placeholder="Mobile Number">
+                </div>
+                <div class="col-12 my-2">
+                    <input type="number" id="fee" placeholder="Monthly Fee">
+                </div>
+                <div class="col-12 my-2">
+                    <div class="btn-div px-3 py-3">
+                        <button class="add-btn" onclick="addStudent()">
+                            <i class="fa-solid fa-plus"></i> Add Student
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Offcanvas =============================================================== -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="add-student.html">Add New Student</a></li>
+                <li class="nav-item"><a class="nav-link" href="reports.html">Reports</a></li>
+            </ul>
+            <!-- Bottom Navigation Links -->
+            <ul class="nav flex-column mt-auto">
+                <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+        import {
+            getFirestore,
+            collection,
+            addDoc
+        }
+            from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLRPhe7W9MUooaxMzqPamLJrbCdKTSqtY",
+            authDomain: "student-fee-manager-v2.firebaseapp.com",
+            projectId: "student-fee-manager-v2",
+            storageBucket: "student-fee-manager-v2.firebasestorage.app",
+            messagingSenderId: "645713472669",
+            appId: "1:645713472669:web:2769769169b6a18542f874"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.addStudent = async function () {
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const studentClass =
+                document.getElementById("class").value.trim();
+
+            const mobile =
+                document.getElementById("mobile").value.trim();
+
+            const fee =
+                Number(document.getElementById("fee").value);
+
+            if (!name) {
+                alert("Enter student name");
+                return;
+            }
+
+            await addDoc(
+                collection(db, "students"),
+                {
+                    name: name,
+                    class: studentClass,
+                    mobile: mobile,
+                    fee: fee
+                }
+            );
+
+            alert("Student Added Successfully");
+
+            document.getElementById("name").value = "";
+            document.getElementById("class").value = "";
+            document.getElementById("mobile").value = "";
+            document.getElementById("fee").value = "";
+        };
+
+    </script>
+
+
+</body>
+
+</html>

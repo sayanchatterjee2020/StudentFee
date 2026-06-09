@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    color: #1f1f1f;
+}
+/* Navbar ======================================= */
+.nav-logo {
+    width: 3rem;
+    height: 3rem;
+}
+.mid-logo {
+    height: 4rem;
+    width: 10rem;
+}
+.navbar i {
+    font-size: 1.5rem;
+}
+
+/* Heading ======================================= */
+#heading h2{
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    color: rgb(170, 170, 170);
+}
+
+/* Add section ==================================== */
+.add-section{
+    border: 2px solid black;
+}
+input{
+    width: 100% !important;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 8px;
+    width: 180px;
+    border: 2px solid black;
+    text-transform: capitalize;
+    box-sizing: border-box;
+}
+input:focus {
+    background: #e6e6e6;
+}
+.btn-div{
+    display: flex;
+    justify-content: center;
+}
+.add-btn {
+    margin-left: 1rem;
+    background: gold;
+    border: 3px solid black;
+    padding: 8px 15px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 4px 4px black;
+    transition: all 0.1s;
+    width: 60%;
+}
+.add-btn:active {
+    box-shadow: 2px 2px black;
+    transform: translate(2px, 2px);
+}
+
+
+/* Modal ==================================== */
+.offcanvas {
+    width: 50vw !important;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.nav-link {
+    color: #2c2c2c !important;
+}

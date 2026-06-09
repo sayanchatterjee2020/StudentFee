@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0 !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+    color: #7a5c1f;
+}
+
+/* Navbar =================================== */
+#navbar {
+    background-color: #f0f0f0;
+}
+
+.nav-logo {
+    width: 3rem;
+    height: 3rem;
+}
+
+.mid-logo {
+    height: 4rem;
+    width: 10rem;
+}
+
+.navbar i {
+    font-size: 1.5rem;
+}
+
+/* Haga =============================================== */
+#search {
+    width: 100% !important;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 8px;
+    width: 180px;
+    border: 2px solid black;
+    text-transform: capitalize;
+    box-sizing: border-box;
+}
+
+#search:focus {
+    background: #e6e6e6;
+}
+
+/* Stats ========================================== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.card {
+    background: #001925;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid black;
+}
+#haga {
+    display: flex;
+    justify-content: center;
+}
+
+/* Student list ========================================*/
+.student {
+    border: 2px solid black;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.student h3{
+    color: rgb(78, 78, 78);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+.fee{
+    color:#7a5c1f;
+    font-size: 1.7rem;
+    font-weight: bold;
+    
+}
+
+
+.paid {
+    margin-left: 1rem;
+    background: rgb(187, 255, 0);
+    border: 3px solid black;
+    padding: 8px 15px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 4px 4px black;
+    transition: all 0.1s;
+    width: 100%;
+    margin: auto;
+}
+
+.unpaid {
+    margin-left: 1rem;
+    background: rgb(255, 94, 0);
+    border: 3px solid black;
+    padding: 8px 15px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 4px 4px black;
+    transition: all 0.1s;
+    width: 100%;
+    margin: auto;
+}
+
+
+
+.unpaid:active {
+    box-shadow: 2px 2px black;
+    transform: translate(2px, 2px);
+}
+
+
+
+
+
+
+
+.offcanvas {
+    width: 50vw !important;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.nav-link {
+    color: #2c2c2c !important;
+}
